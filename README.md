@@ -54,20 +54,7 @@
 
 ## Быстрый старт
 
-### 1. Установите Python
-
-Скачайте Python 3.8 или новее с [python.org](https://www.python.org/downloads/). При установке на Windows отметьте галочку **Add Python to PATH**.
-
-### 2. Скачайте скрипт
-
-На этой странице нажмите **Code → Download ZIP** и распакуйте архив в любую папку.
-
-Или через git:
-```bash
-git clone https://github.com/Frendyq/telegram-chat-anonymizer.git
-```
-
-### 3. Выгрузите чат из Telegram
+### 1. Выгрузите чат из Telegram
 
 1. Откройте **Telegram Desktop** (в приложении для телефона экспорта нет).
 2. Откройте нужный чат и нажмите **⋮ → Экспорт истории чата** (*Export chat history*).
@@ -75,14 +62,27 @@ git clone https://github.com/Frendyq/telegram-chat-anonymizer.git
 4. Внизу выберите формат **Машиночитаемый JSON**.
 5. Нажмите **Экспортировать**. Получится папка `ChatExport_…` с файлом `result.json`.
 
-### 4. Запустите
+### 2а. Windows: готовая программа, Python не нужен
 
-**Windows, проще всего:** перетащите `result.json` мышкой на файл `run.bat`.
+1. Скачайте **`TelegramAnonymizer.exe`** со страницы [Releases](https://github.com/Frendyq/telegram-chat-anonymizer/releases/latest).
+2. Запустите программу и выберите `result.json`. Или просто перетащите на программу `result.json` либо всю папку `ChatExport_…`.
+3. Программа обезличит чат и сразу проверит результат на утечки.
 
-**Из командной строки:** откройте терминал в папке со скриптом и выполните
-```bash
-python anonymize_tg.py "путь\к\result.json" --txt anon.txt --suggest suggest.txt
-```
+> Windows может показать предупреждение «Система Windows защитила ваш компьютер»: у программы нет платной цифровой подписи. Нажмите **Подробнее → Выполнить в любом случае**. Программа работает офлайн, а её исходный код открыт в этом репозитории. Если не доверяете готовому `.exe`, соберите его сами: `build_exe.bat`.
+
+Свои списки (`names.txt`, `hide.txt`, `keep.txt`, см. ниже) кладите **рядом с `TelegramAnonymizer.exe`**.
+
+### 2б. Любая система: скрипт на Python
+
+1. Установите Python 3.8 или новее с [python.org](https://www.python.org/downloads/). На Windows при установке отметьте галочку **Add Python to PATH**.
+2. Скачайте скрипт: на этой странице **Code → Download ZIP**, или через git:
+   ```bash
+   git clone https://github.com/Frendyq/telegram-chat-anonymizer.git
+   ```
+3. Запустите. На Windows проще всего перетащить `result.json` на `run.bat`. Из терминала:
+   ```bash
+   python anonymize_tg.py "путь\к\result.json" --txt anon.txt --suggest suggest.txt
+   ```
 
 Рядом с `result.json` появится `result_anon.json` — обезличенный чат.
 

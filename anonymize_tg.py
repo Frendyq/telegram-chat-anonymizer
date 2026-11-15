@@ -137,9 +137,28 @@ def is_latin(word: str) -> bool:
 # Имена
 # --------------------------------------------------------------------------
 
+def app_dir() -> Path:
+    """Папка программы: рядом с .exe (если собрано PyInstaller) или рядом со скриптом.
+    Здесь ищутся names.txt / hide.txt / keep.txt."""
+    if getattr(sys, "frozen", False):
+        return Path(sys.executable).resolve().parent
+    return Path(__file__).resolve().parent
+
+
+def resource_path(name: str) -> Path:
+    """Файл рядом с программой (можно подменить своим), иначе — встроенный в .exe."""
+    p = app_dir() / name
+    if p.exists():
+        return p
+    bundled = getattr(sys, "_MEIPASS", None)
+    if bundled and (Path(bundled) / name).exists():
+        return Path(bundled) / name
+    return p
+
+
 def load_builtin_names() -> list[str]:
     """Встроенный словарь имён из builtin_names.txt рядом со скриптом."""
-    path = Path(__file__).resolve().with_name("builtin_names.txt")
+    path = resource_path("builtin_names.txt")
     if not path.exists():
         print(f"Внимание: не найден {path.name} — встроенный словарь имён не загружен.", file=sys.stderr)
         return []
@@ -1108,7 +1127,7 @@ def default_file(arg: str | None, name: str) -> str | None:
     """Если файл не указан явно, берём names.txt / hide.txt / keep.txt рядом со скриптом."""
     if arg:
         return arg
-    p = Path(__file__).resolve().with_name(name)
+    p = app_dir() / name
     return str(p) if p.exists() else None
 
 
