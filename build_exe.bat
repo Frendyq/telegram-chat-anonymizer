@@ -1,5 +1,5 @@
 @echo off
-rem Build TelegramAnonymizer.exe (Windows). Requires Python 3.8+.
+rem Build TelegramAnonymizer.exe (Windows). Requires Python 3.9+.
 rem Result: dist\TelegramAnonymizer.exe
 setlocal
 cd /d "%~dp0"

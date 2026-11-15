@@ -1,5 +1,9 @@
 # Telegram Chat Anonymizer
 
+[![Tests](https://github.com/Frendyq/telegram-chat-anonymizer/actions/workflows/tests.yml/badge.svg)](https://github.com/Frendyq/telegram-chat-anonymizer/actions/workflows/tests.yml)
+[![Release](https://img.shields.io/github/v/release/Frendyq/telegram-chat-anonymizer)](https://github.com/Frendyq/telegram-chat-anonymizer/releases/latest)
+[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+
 Скрипт обезличивает экспорт переписки из Telegram Desktop (`result.json`). Из чата пропадают имена, телефоны, почты, пароли, адреса и другие личные данные. После этого переписку можно отдать на анализ нейросети, исследователю или коллеге.
 
 Скрипт работает **полностью офлайн**: ничего не отправляет в интернет и не требует установки библиотек. Нужен только Python.
@@ -74,7 +78,7 @@
 
 ### 2б. Любая система: скрипт на Python
 
-1. Установите Python 3.8 или новее с [python.org](https://www.python.org/downloads/). На Windows при установке отметьте галочку **Add Python to PATH**.
+1. Установите Python 3.9 или новее с [python.org](https://www.python.org/downloads/). На Windows при установке отметьте галочку **Add Python to PATH**.
 2. Скачайте скрипт: на этой странице **Code → Download ZIP**, или через git:
    ```bash
    git clone https://github.com/Frendyq/telegram-chat-anonymizer.git
@@ -160,11 +164,20 @@ python anonymize_tg.py result.json [параметры]
 - **Косвенные детали** (события, профессия, учёба, внешность) скрипт не трогает. По ним знакомые могут узнать человека. Если это важно, вычитайте результат и допишите слова в `hide.txt`.
 - **Обрабатывается только экспорт одного чата в формате JSON.** Формат HTML и полный экспорт аккаунта не поддерживаются.
 
-## Тесты
+## Тесты и выпуск версий
 
 ```bash
 python -m unittest discover -s tests
 ```
+
+Тесты автоматически запускаются на GitHub при каждом изменении: Windows, Linux и macOS, Python 3.9–3.14.
+
+Чтобы выпустить новую версию программы, достаточно поставить тег:
+```bash
+git tag v1.1.0
+git push origin v1.1.0
+```
+GitHub сам соберёт `TelegramAnonymizer.exe`, проверит его на примере чата и опубликует в [Releases](https://github.com/Frendyq/telegram-chat-anonymizer/releases).
 
 ## Лицензия
 
@@ -176,7 +189,7 @@ python -m unittest discover -s tests
 
 **Telegram Chat Anonymizer** removes personal data from a Telegram Desktop chat export (`result.json`) so the conversation can be safely shared or analysed by an AI.
 It replaces authors with "Person A / Person B" and masks names (all Russian/Kazakh cases, diminutives, lowercase, Latin spelling), phones, emails, cards, IDs, links, usernames, passwords, tokens, addresses, documents and coordinates with consistent tags like `[ИМЯ_3]`.
-It works fully offline, needs only Python 3.8+ and has no dependencies.
+It works fully offline, needs only Python 3.9+ and has no dependencies.
 
 ```bash
 python anonymize_tg.py path/to/result.json --txt anon.txt --suggest suggest.txt

@@ -18,7 +18,7 @@ set "DIR=%~dp1"
 %PY% "%~dp0anonymize_tg.py" "%~1" --txt "%DIR%%~n1_anon.txt" --suggest "%DIR%%~n1_suggest.txt"
 if errorlevel 1 (
   echo.
-  echo ERROR. Make sure Python 3.8+ is installed: https://www.python.org/downloads/
+  echo ERROR. Make sure Python 3.9+ is installed: https://www.python.org/downloads/
   pause
   exit /b 1
 )
