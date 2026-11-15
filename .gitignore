@@ -1,0 +1,18 @@
+# Личные настройки — никогда не публикуйте их
+names.txt
+hide.txt
+keep.txt
+
+# Экспорты Telegram и результаты анонимизации
+result*.json
+*_anon.json
+ChatExport*/
+*anon*.txt
+*suggest*.txt
+*audit*.txt
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/

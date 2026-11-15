@@ -1,0 +1,79 @@
+{
+ "name": "Алексей Смирнов",
+ "type": "personal_chat",
+ "id": 1000000001,
+ "messages": [
+  {
+   "id": 1,
+   "type": "service",
+   "date": "2026-01-10T09:00:00",
+   "actor": "Алексей Смирнов",
+   "actor_id": "user1000000001",
+   "action": "phone_call",
+   "text": "",
+   "text_entities": []
+  },
+  {
+   "id": 2,
+   "type": "message",
+   "date": "2026-01-10T09:01:00",
+   "from": "Алексей Смирнов",
+   "from_id": "user1000000001",
+   "text": "Привет, Мария! Это Лёша. Мой новый номер +7 (700) 123-45-67, почта alexey.smirnov@example.com",
+   "text_entities": []
+  },
+  {
+   "id": 3,
+   "type": "message",
+   "date": "2026-01-10T09:02:00",
+   "from": "Мария Иванова",
+   "from_id": "user1000000002",
+   "reply_to_message_id": 2,
+   "text": "Привет, Алексей Петрович! Передай Ерлану и Айгерим Касымовой привет. Скинь деньги на карту 4111 1111 1111 1111",
+   "text_entities": []
+  },
+  {
+   "id": 4,
+   "type": "message",
+   "date": "2026-01-10T09:03:00",
+   "from": "Алексей Смирнов",
+   "from_id": "user1000000001",
+   "text": "логин от вайфая: home_wifi\nпароль: Summer2024!\nживём на ул. Ленина 15, кв 42",
+   "text_entities": []
+  },
+  {
+   "id": 5,
+   "type": "message",
+   "date": "2026-01-10T09:04:00",
+   "from": "Мария Иванова",
+   "from_id": "user1000000002",
+   "forwarded_from": "Пётр Сидоров",
+   "forwarded_from_id": "user1000000003",
+   "text": "Это Пётр, пишите в телеграм @petr_sidorov_99 или t.me/petr_sidorov",
+   "text_entities": [
+    {"type": "plain", "text": "Это Пётр, пишите в телеграм "},
+    {"type": "mention", "text": "@petr_sidorov_99"},
+    {"type": "plain", "text": " или t.me/petr_sidorov"}
+   ]
+  },
+  {
+   "id": 6,
+   "type": "message",
+   "date": "2026-01-10T09:05:00",
+   "from": "Алексей Смирнов",
+   "from_id": "user1000000001",
+   "photo": "(File not included. Change data exporting settings to download.)",
+   "text": "ерлан с машей придут в 19:00, встреча 2026-02-15. ИИН 990101300123",
+   "text_entities": []
+  },
+  {
+   "id": 7,
+   "type": "message",
+   "date": "2026-01-10T09:06:00",
+   "from": "Мария Иванова",
+   "from_id": "user1000000002",
+   "text": "на улице холодно, площадь 50 кв м, марка машины Toyota",
+   "text_entities": []
+  }
+ ]
+}
