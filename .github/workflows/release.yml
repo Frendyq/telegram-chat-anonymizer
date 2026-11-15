@@ -43,7 +43,7 @@ jobs:
         shell: pwsh
         run: |
           New-Item -ItemType Directory pkg/TelegramAnonymizer | Out-Null
-          Copy-Item dist/TelegramAnonymizer.exe, names.example.txt, hide.example.txt, keep.example.txt, README.md, LICENSE pkg/TelegramAnonymizer
+          Copy-Item dist/TelegramAnonymizer.exe, names.example.txt, hide.example.txt, keep.example.txt, README.md, README.ru.md, LICENSE pkg/TelegramAnonymizer
           Compress-Archive pkg/TelegramAnonymizer TelegramAnonymizer-windows.zip
           "SHA-256 TelegramAnonymizer.exe: $((Get-FileHash dist/TelegramAnonymizer.exe -Algorithm SHA256).Hash)" | Tee-Object SHA256.txt
 
