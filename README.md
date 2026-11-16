@@ -142,7 +142,7 @@ python check_anon.py path/to/result_anon.json
 ```
 The checker uses its own, independent rules to look for leftover phone numbers, emails, cards, links, passwords, addresses, documents and names from `names.txt`. **It prints only counts, never the chat text.** If every line says `OK`, the file is clean. With `--show` it also prints the matched words, still without the surrounding text.
 
-> ⚠️ `names.txt`, `hide.txt` and `keep.txt` contain your personal data. Don't publish them. They are already listed in `.gitignore`.
+> **Warning:** `names.txt`, `hide.txt` and `keep.txt` contain your personal data. Don't publish them. They are already listed in `.gitignore`.
 
 ---
 
